@@ -1,0 +1,47 @@
+# ZOOKEEPER_URI:
+#   displayName: "zookeeper cluster URI"
+#   description: |
+#     host and port information for Zookeeper connection.
+#     e.g. zk:2181,zk2:2181,zk3:2181
+#   default: "zk-zookeeper-0.zk-hs:2181,zk-zookeeper-1.zk-hs:2181,zk-zookeeper-2.zk-hs:2181"
+#   required: true
+
+namespace: 
+  default: "dev"
+## Optional additional RoleBindings. It is a good idea to specify at least one
+## to grant administrative permissions to a user or group.
+# roleBindings:
+#   name: admin-group-admin
+#   role:
+#     ## Valid values are "Role" or "ClusterRole"
+#     kind: ClusterRole
+#     name: admin
+#   subject:
+#     ## Valid values are "User", "Group", or "ServiceAccount"
+#     kind: ServiceAccount
+rolebindingName:
+  default: "ns-admin"
+
+rolebindingClusterRoleKind:
+  default: "ClusterRole"
+
+rolebindingClusterRoleName:
+  default: "admin"
+
+rolebindingSubjectKind:
+  default: "ServiceAccount"
+
+limitscpu:
+  default: "2"
+
+limitsmemory:
+  default: 2048Mi
+
+requestscpu:
+  default: "0.5"
+
+requestsmemory:
+  default: 256Mi
+
+podsPerNS:
+  default: "50"

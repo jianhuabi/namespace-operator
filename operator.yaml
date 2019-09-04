@@ -1,0 +1,23 @@
+name: "ns-operator"
+version: "0.1.0"
+kudoVersion: 0.5.0
+kubernetesVersion: 1.15.0
+maintainers:
+  - Michael Bi <mbi@d2iq.com>
+url: https://github.com/jianhuabi/ns-kudo-operator
+tasks:
+  deploy-task:
+    resources:
+      - serviceaccounts.yaml
+      - rolebinding.yaml
+      - resourcequota.yaml
+plans:
+  deploy:
+    strategy: serial
+    phases:
+      - name: deploy-phase
+        strategy: parallel
+        steps:
+          - name: deploy-step
+            tasks:
+              - deploy-task
